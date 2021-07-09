@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Keycloak.Keycloak;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Keycloak.Controllers
 {
+    [Authorize(Roles = Roles.User)]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
